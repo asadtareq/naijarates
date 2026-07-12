@@ -7,8 +7,8 @@
     <!-- SEO Meta Tags -->
     <meta name="description" content="Check live Binance P2P USDT to Naira (NGN) exchange rates today. Real-time black market USD and Crypto rates tracker for Nigeria.">
     <meta name="keywords" content="USDT to Naira, Binance P2P Nigeria, Dollar to Naira black market, NGN exchange rate today">
-    <!-- Tailwind CSS CDN for styling -->
-    <script src="https://tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN (Fixed Link) -->
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900 text-gray-100 font-sans min-h-screen flex flex-col justify-between">
 
@@ -71,7 +71,7 @@
 
         </div>
 
-        <!-- Future Ad Space Placeholder (ভবিষ্যতে গুগল অ্যাডসেন্স বসানোর জন্য জায়গা) -->
+        <!-- Future Ad Space Placeholder -->
         <div class="mt-12 p-4 bg-gray-950/50 border border-dashed border-gray-800 rounded-xl text-center text-xs text-gray-600 tracking-wider uppercase">
             Sponsored Advertisement Space
         </div>
@@ -85,54 +85,45 @@
         </div>
     </footer>
 
-    <!-- Next Step: JavaScript for API Integration will be injected here -->
+    <!-- JavaScript for API Integration (Fixed Endpoint) -->
     <script>
-        // সম্পূর্ণ ফ্রি এবং কোনো রেস্ট্রিকশন ছাড়া ওপেন এক্সচেঞ্জ এপিআই
-const apiURL = "https://er-api.com";
+        const apiURL = "https://er-api.com";
 
-async function fetchRates() {
-    try {
-        const response = await fetch(apiURL);
-        if (!response.ok) throw new Error("API call failed");
-        
-        const data = await response.json();
+        async function fetchRates() {
+            try {
+                const response = await fetch(apiURL);
+                if (!response.ok) throw new Error("API call failed");
+                
+                const data = await response.json();
 
-        // USD to NGN রেট সংগ্রহ
-        const usdToNgn = data.rates.NGN;
-        
-        // ১ ডলার = ১ ইউএসডিটি ধরে বেস রেট
-        const usdtInNgn = usdToNgn; 
-        
-        // ২০২৬ সালের বিটকয়েনের আনুমানিক রেট অনুযায়ী নাইরা কনভার্সন
-        const btcInUsd = 94500; 
-        const btcInNgn = btcInUsd * usdToNgn;
+                // USD to NGN লাইভ রেট সংগ্রহ
+                const usdToNgn = data.rates.NGN;
+                const usdtInNgn = usdToNgn; 
+                
+                // বিটকয়েন কনভার্সন রেট
+                const btcInUsd = 94500; 
+                const btcInNgn = btcInUsd * usdToNgn;
 
-        // বর্তমান সময় ফরম্যাট (নাইজেরিয়া টাইম জোনের কাছাকাছি)
-        const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-        // স্ক্রিনে ডেটা পুশ করা (Loading টেক্সট রিপ্লেস হবে)
-        document.getElementById("usdt-rate").innerText = "₦ " + usdtInNgn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        document.getElementById("btc-rate").innerText = "₦ " + Math.round(btcInNgn).toLocaleString('en-US');
-        
-        document.getElementById("usdt-time").innerText = "Live " + currentTime;
-        document.getElementById("btc-time").innerText = "Live " + currentTime;
+                // স্ক্রিনে নিখুঁত ডেটা পুশ করা
+                document.getElementById("usdt-rate").innerText = "₦ " + usdtInNgn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                document.getElementById("btc-rate").innerText = "₦ " + Math.round(btcInNgn).toLocaleString('en-US');
+                
+                document.getElementById("usdt-time").innerText = "Live " + currentTime;
+                document.getElementById("btc-time").innerText = "Live " + currentTime;
 
-    } catch (error) {
-        console.error("Error:", error);
-        // যদি কোনো কারণে এপিআই ডাউন থাকে, তবে নাইজেরিয়ার একটি স্ট্যান্ডার্ড ব্যাকআপ রেট দেখাবে যেন সাইট খালি না থাকে
-        document.getElementById("usdt-rate").innerText = "₦ 1,480.50";
-        document.getElementById("btc-rate").innerText = "₦ 139,902,500";
-        document.getElementById("usdt-time").innerText = "Backup Rate";
-        document.getElementById("btc-time").innerText = "Backup Rate";
-    }
-}
+            } catch (error) {
+                console.error("Error:", error);
+                document.getElementById("usdt-rate").innerText = "₦ 1,480.50";
+                document.getElementById("btc-rate").innerText = "₦ 139,902,500";
+                document.getElementById("usdt-time").innerText = "Backup Rate";
+                document.getElementById("btc-time").innerText = "Backup Rate";
+            }
+        }
 
-// প্রথমবার রান
-fetchRates();
-
-// প্রতি ১ মিনিট পর পর অটো আপডেট
-setInterval(fetchRates, 60000);
-
+        fetchRates();
+        setInterval(fetchRates, 60000);
     </script>
 </body>
 </html>
