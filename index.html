@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Live Naija Rates | Binance P2P USDT to Naira Today</title>
+    
+    <!-- Google Search Console Verification Tag -->
+    <meta name="google-site-verification" content="b3o-FaoV-rVZxx1shqF9nCidFWcCZL3bnbKMkRkRlgc" />
+    
     <meta name="description" content="Check live Binance P2P USDT to Naira (NGN) exchange rates today. Real-time black market USD and Crypto rates tracker for Nigeria.">
     <meta name="keywords" content="USDT to Naira, Binance P2P Nigeria, Dollar to Naira black market, NGN exchange rate today">
     <style>
@@ -95,9 +99,7 @@
         <p>&copy; 2026 NaijaRates. All rights reserved. Data source via Google Sheet CSV Stream.</p>
     </footer>
 
-    <!-- আপনার নির্দিষ্ট পাবলিক লিংক রিড করার মেকানিজম -->
     <script>
-        // আপনার আসল পাবলিক লিংকটি এখানে সেট করা হয়েছে
         const publicSheetURL = "https://google.com";
 
         async function fetchLiveSheet() {
@@ -106,12 +108,11 @@
                 if (!response.ok) throw new Error("Fetch error");
                 const csvData = await response.text();
                 
-                // কমা (,) দিয়ে রো-এর ডেটা আলাদা করা
-                const cleanData = csvData.replace(/"/g, ''); // বাড়তি কোটেশন রিমুভ করা
+                const cleanData = csvData.replace(/"/g, '');
                 const columns = cleanData.split(',');
 
-                const usdtRaw = parseFloat(columns[0]); // ১ম কলাম (A1)
-                const btcRaw = parseFloat(columns[1]);  // ২য় কলাম (B1)
+                const usdtRaw = parseFloat(columns[0]); 
+                const btcRaw = parseFloat(columns[1]);  
 
                 const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
@@ -129,7 +130,6 @@
         }
 
         fetchLiveSheet();
-        // প্রতি ১ মিনিট পর পর অটোমেটিক রিফ্রেশ ছাড়াই ডেটা আপডেট হবে
         setInterval(fetchLiveSheet, 60000);
     </script>
 </body>
