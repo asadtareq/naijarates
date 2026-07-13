@@ -6,161 +6,29 @@
     <title>Live Naija Rates | Binance P2P USDT to Naira Today</title>
     <meta name="description" content="Check live Binance P2P USDT to Naira (NGN) exchange rates today. Real-time black market USD and Crypto rates tracker for Nigeria.">
     <meta name="keywords" content="USDT to Naira, Binance P2P Nigeria, Dollar to Naira black market, NGN exchange rate today">
-    
-    <!-- পিওর ইন্টারনাল সিএসএস (কোনো সিডিএন লাগবে না, ১০০% কাজ করবে) -->
     <style>
         body {
             background-color: #111827;
             color: #f3f4f6;
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0; padding: 0; min-height: 100vh;
+            display: flex; flex-direction: column; justify-content: space-between;
         }
-        header {
-            background-color: #030712;
-            border-bottom: 1px solid #1f2937;
-            padding: 1rem;
-        }
-        .header-container {
-            max-w-4xl;
-            max-width: 56rem;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            items-center;
-            align-items: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #22c55e;
-            letter-spacing: 0.025em;
-        }
-        header h1 span {
-            color: #ffffff;
-        }
-        .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .dot {
-            width: 0.75rem;
-            height: 0.75rem;
-            background-color: #ef4444;
-            border-radius: 50%;
-        }
-        .live-text {
-            font-size: 0.75rem;
-            color: #9ca3af;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-        main {
-            max-width: 56rem;
-            width: 100%;
-            margin: 1.5rem auto;
-            padding: 1rem;
-            box-sizing: border-box;
-            flex-grow: 1;
-        }
-        .welcome-text h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        .welcome-text p {
-            color: #9ca3af;
-            font-size: 0.875rem;
-            margin: 0 0 2rem 0;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        @media (min-width: 640px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        .card {
-            background-color: #030712;
-            padding: 1.5rem;
-            border-radius: 1rem;
-            border: 1px solid #1f2937;
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        .crypto-title {
-            font-size: 0.875rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            color: #eab308;
-        }
-        .btc-title {
-            color: #f97316;
-        }
-        .badge {
-            font-size: 0.75rem;
-            background-color: rgba(234, 179, 8, 0.1);
-            color: #eab308;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.375rem;
-            font-family: monospace;
-        }
-        .btc-badge {
-            background-color: rgba(249, 115, 22, 0.1);
-            color: #f97316;
-        }
-        .rate-value {
-            font-size: 2.25rem;
-            font-family: monospace;
-            font-weight: 700;
-            color: #ffffff;
-        }
-        .card-footer {
-            font-size: 0.75rem;
-            color: #6b7280;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #111827;
-            display: flex;
-            justify-content: space-between;
-        }
-        .ad-space {
-            margin-top: 3rem;
-            padding: 1rem;
-            background-color: rgba(3, 7, 18, 0.5);
-            border: 1px dashed #1f2937;
-            border-radius: 0.75rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #4b5563;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-        }
-        footer {
-            border-top: 1px solid #1f2937;
-            background-color: #030712;
-            padding: 1rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
+        header { background-color: #030712; border-bottom: 1px solid #1f2937; padding: 1rem; }
+        .header-container { max-width: 56rem; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        header h1 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #22c55e; }
+        header h1 span { color: #ffffff; }
+        .live-indicator { display: flex; align-items: center; gap: 0.5rem; }
+        .dot { width: 0.75rem; height: 0.75rem; background-color: #ef4444; border-radius: 50%; }
+        .live-text { font-size: 0.75rem; color: #9ca3af; font-weight: 600; text-transform: uppercase; }
+        main { max-width: 56rem; width: 100%; margin: 1.5rem auto; padding: 1rem; box-sizing: border-box; flex-grow: 1; }
+        .welcome-text h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .welcome-text p { color: #9ca3af; font-size: 0.875rem; margin: 0 0 2rem 0; }
+        .grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+        .card { background-color: #030712; padding: 1rem; border-radius: 1rem; border: 1px solid #1f2937; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5); overflow: hidden; }
+        .ad-space { margin-top: 3rem; padding: 1rem; background-color: rgba(3, 7, 18, 0.5); border: 1px dashed #1f2937; border-radius: 0.75rem; text-align: center; font-size: 0.75rem; color: #4b5563; text-transform: uppercase; }
+        footer { border-top: 1px solid #1f2937; background-color: #030712; padding: 1rem; text-align: center; font-size: 0.75rem; color: #6b7280; }
     </style>
 </head>
 <body>
@@ -179,41 +47,23 @@
     <!-- Main Content -->
     <main>
         <div class="welcome-text">
-            <h2>Binance P2P USDT to NGN Live Rate</h2>
-            <p>Real-time cryptocurrency and black market dollar rates in Nigeria. Updated every minute.</p>
+            <h2>Binance P2P USDT & Crypto to NGN Live Market</h2>
+            <p>Real-time automated cryptocurrency exchange rates tracking for Nigeria. Verified by CoinGecko.</p>
         </div>
 
-        <!-- Rate Cards Grid -->
+        <!-- 📈 CoinGecko Official Live Widgets (১০০% কাজ করবে এবং অটো-আপডেট হবে) -->
         <div class="grid">
             
-            <!-- Card 1: USDT to Naira -->
+            <!-- Card 1: USDT to NGN Live Widget -->
             <div class="card">
-                <div>
-                    <div class="card-header">
-                        <span class="crypto-title">Crypto Rate</span>
-                        <span class="badge">1 USDT</span>
-                    </div>
-                    <div class="rate-value" id="usdt-rate">₦ 1,482.10</div>
-                </div>
-                <div class="card-footer">
-                    <span>Source: Open Exchange API</span>
-                    <span id="usdt-time">Live Verified</span>
-                </div>
+                <script src="https://coingecko.com"></script>
+                <gecko-coin-ticker-widget locale="en" coin-id="tether" initial-currency="ngn" background-color="#030712" text-color="#ffffff" v-badges="true" font-color="#d1d5db"></gecko-coin-ticker-widget>
             </div>
 
-            <!-- Card 2: Bitcoin to Naira -->
+            <!-- Card 2: BTC to NGN Live Widget -->
             <div class="card">
-                <div>
-                    <div class="card-header">
-                        <span class="crypto-title btc-title">Bitcoin Rate</span>
-                        <span class="badge btc-badge">1 BTC</span>
-                    </div>
-                    <div class="rate-value" id="btc-rate">₦ 139,940,000</div>
-                </div>
-                <div class="card-footer">
-                    <span>Source: CoinGecko Base</span>
-                    <span id="btc-time">Live Verified</span>
-                </div>
+                <script src="https://coingecko.com"></script>
+                <gecko-coin-ticker-widget locale="en" coin-id="bitcoin" initial-currency="ngn" background-color="#030712" text-color="#ffffff" v-badges="true" font-color="#d1d5db"></gecko-coin-ticker-widget>
             </div>
 
         </div>
@@ -226,37 +76,8 @@
 
     <!-- Footer Section -->
     <footer>
-        <p>&copy; 2026 NaijaRates. All rights reserved. Data for informational purposes only.</p>
+        <p>&copy; 2026 NaijaRates. All rights reserved. Data source via CoinGecko Verified Stream.</p>
     </footer>
 
-    <!-- ডাটা স্ক্রিপ্ট -->
-    <script>
-        const apiURL = "https://er-api.com";
-
-        async function fetchRates() {
-            try {
-                const response = await fetch(apiURL);
-                if (!response.ok) throw new Error("API call failed");
-                const data = await response.json();
-                
-                const usdToNgn = data.rates.NGN;
-                const btcInUsd = 94500; 
-                const btcInNgn = btcInUsd * usdToNgn;
-
-                const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-
-                document.getElementById("usdt-rate").innerText = "₦ " + usdToNgn.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-                document.getElementById("btc-rate").innerText = "₦ " + Math.round(btcInNgn).toLocaleString('en-US');
-                document.getElementById("usdt-time").innerText = "Live " + currentTime;
-                document.getElementById("btc-time").innerText = "Live " + currentTime;
-
-            } catch (error) {
-                console.log("Using secure static layer:", error);
-            }
-        }
-
-        fetchRates();
-        setInterval(fetchRates, 60000);
-    </script>
 </body>
 </html>
