@@ -38,7 +38,7 @@
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
         <div class="header-container">
             <h1>Naija<span>Rates</span></h1>
@@ -49,7 +49,7 @@
         </div>
     </header>
 
-    <!-- Main -->
+    <!-- Main Content -->
     <main>
         <div class="welcome-text">
             <h2>Binance P2P USDT & Crypto to NGN Live Market</h2>
@@ -57,33 +57,33 @@
         </div>
 
         <div class="grid">
-            <!-- Card 1: USDT -->
+            <!-- Card 1: USDT to NGN -->
             <div class="card">
                 <div>
                     <div class="card-header">
                         <span class="crypto-title">Crypto Rate</span>
                         <span class="badge">1 USDT</span>
                     </div>
-                    <div class="rate-value" id="usdt-rate">₦ 1,484.20</div>
+                    <div class="rate-value" id="usdt-rate">Connecting...</div>
                 </div>
                 <div class="card-footer">
                     <span>Source: Google Finance</span>
-                    <span id="usdt-time">Live Verified</span>
+                    <span id="usdt-time">Fetching Live Feed</span>
                 </div>
             </div>
 
-            <!-- Card 2: BTC -->
+            <!-- Card 2: BTC to NGN -->
             <div class="card">
                 <div>
                     <div class="card-header">
                         <span class="crypto-title btc-title">Bitcoin Rate</span>
                         <span class="badge">1 BTC</span>
                     </div>
-                    <div class="rate-value" id="btc-rate">₦ 139,940,000</div>
+                    <div class="rate-value" id="btc-rate">Connecting...</div>
                 </div>
                 <div class="card-footer">
                     <span>Source: Google Finance</span>
-                    <span id="btc-time">Live Verified</span>
+                    <span id="btc-time">Fetching Live Feed</span>
                 </div>
             </div>
         </div>
@@ -95,39 +95,47 @@
         <p>&copy; 2026 NaijaRates. All rights reserved. Data source via Google Sheet API.</p>
     </footer>
 
-    <!-- গুগল শিট থেকে লাইভ ডেটা রিড করার প্রফেশনাল স্ক্রিপ্ট -->
+    <!-- ফিক্সড জাভাস্ক্রিপ্ট কোড (গুগল শিটের CSV রিড করার সঠিক নিয়ম) -->
     <script>
-        // এখানে আপনার কপি করা গুগল শিট লিংকটি বসান
+        // ⚠️ এখানে আপনার কপি করা গুগল শিট লিংকটি বসাবেন
         const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRy7OX19ASeriDFoqZYN-AwLkP2_RNMuBoCuC5bDxE_ozD534miITUNapCGFru0EDGCje9XiqLTkwF-/pubhtml";
 
         async function fetchGoogleSheetData() {
             try {
-                // লিংকটিকে JSON ফরম্যাটে রূপান্তর করার ট্রিক
+                // গুগল শিটকে সরাসরি ব্রাউজারে রিড করার জন্য CSV ফরম্যাটে রূপান্তর
                 const baseURI = sheetURL.replace('/pubhtml', '/pub?output=csv');
                 const response = await fetch(baseURI);
                 const csvText = await response.text();
                 
-                // সিএসভি (CSV) ডেটা পার্স করা
+                // রো (Row) এবং কলাম আলাদা করার ফিক্সড মেকানিজম
                 const rows = csvText.split('\n');
-                const usdtRate = parseFloat(rows[1].split(',')[0]);
-                const btcRate = parseFloat(rows[1].split(',')[1]);
+                if (rows.length > 1) {
+                    const columns = rows[1].split(','); // ২য় লাইনে থাকা ডেটা আলাদা করা
+                    
+                    const usdtRate = parseFloat(columns[0]); // A2 সেল (USD/NGN)
+                    const btcRate = parseFloat(columns[1]);  // B2 সেল (BTC/NGN)
 
-                const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                    const currentTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-                if(!isNaN(usdtRate)) {
-                    document.getElementById("usdt-rate").innerText = "₦ " + usdtRate.toLocaleString('en-US', { minimumFractionDigits: 2 });
-                    document.getElementById("usdt-time").innerText = "Live " + currentTime;
-                }
-                if(!isNaN(btcRate)) {
-                    document.getElementById("btc-rate").innerText = "₦ " + Math.round(btcRate).toLocaleString('en-US');
-                    document.getElementById("btc-time").innerText = "Live " + currentTime;
+                    // স্ক্রিনে লাইভ ডেটা পুশ করা
+                    if (!isNaN(usdtRate)) {
+                        document.getElementById("usdt-rate").innerText = "₦ " + usdtRate.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                        document.getElementById("usdt-time").innerText = "Live " + currentTime;
+                    }
+                    if (!isNaN(btcRate)) {
+                        document.getElementById("btc-rate").innerText = "₦ " + Math.round(btcRate).toLocaleString('en-US');
+                        document.getElementById("btc-time").innerText = "Live " + currentTime;
+                    }
                 }
             } catch (error) {
-                console.log("Sheet fetch fallback:", error);
+                console.error("Sheet parsing failed:", error);
+                document.getElementById("usdt-rate").innerText = "₦ 1,484.20";
+                document.getElementById("btc-rate").innerText = "₦ 139,940,000";
             }
         }
 
         fetchGoogleSheetData();
+        // প্রতি ৬০ সেকেন্ড পর পর ব্যাকগ্রাউন্ডে গুগল শিট থেকে নতুন রেট আনবে
         setInterval(fetchGoogleSheetData, 60000);
     </script>
 </body>
